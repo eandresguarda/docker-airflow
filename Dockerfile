@@ -77,6 +77,8 @@ COPY script/entrypoint.sh /entrypoint.sh
 COPY config/airflow.cfg ${AIRFLOW_USER_HOME}/airflow.cfg
 
 RUN chown -R airflow: ${AIRFLOW_USER_HOME}
+COPY requirements.txt /requirements.txt
+RUN pip install -r requirements.txt
 
 EXPOSE 8080 5555 8793
 
